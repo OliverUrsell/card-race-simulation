@@ -1,0 +1,1 @@
+A simulation of the card race betting game, to see how variations in the deck effect the probability of a certain suit winning.
