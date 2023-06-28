@@ -29,4 +29,14 @@ class Card:
         self.value = value
 
     def __str__(self) -> str:
-        return str(self.value) + str(self.suit)
+        value_string: str = str(self.value)
+        if value_string == "11":
+            value_string = "J"
+        elif value_string == "12":
+            value_string = "Q"
+        elif value_string == "13":
+            value_string = "K"
+        elif value_string == "1":
+            value_string = "A"
+
+        return value_string + str(self.suit)
