@@ -16,6 +16,13 @@ class TestCard(unittest.TestCase):
         self.assertEqual(str(Card(13, Suit.CLUB)), "KC")
         self.assertEqual(str(Card(1, Suit.SPADE)), "AS")
 
+    def test_invalid_card_values(self):
+        """
+        Tests that cards can't be created with a value of <1 or >13
+        """
+        self.assertRaises(AssertionError, Card, 0, Suit.DIAMOND)
+        self.assertRaises(AssertionError, Card, 14, Suit.DIAMOND)
+
 
 if __name__ == '__main__':
     unittest.main()
