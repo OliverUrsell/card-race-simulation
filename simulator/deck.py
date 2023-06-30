@@ -9,6 +9,9 @@ class Deck:
     _cards: List[Card]
 
     def __init__(self, start_full:bool = True):
+        """
+        :param start_full: Whether to start with an ordered deck (True), or an empty deck (False)
+        """
         self._cards = []
         if start_full:
             for suit in Suit:
@@ -20,7 +23,7 @@ class Deck:
         Add the given card to the end of the deck
         :param card: The card to add to the end of the deck
         """
-        self._cards += card
+        self._cards += [card]
 
     def remove_card(self, card:Card):
         """
@@ -35,3 +38,20 @@ class Deck:
 
     def shuffle(self):
         shuffle(self._cards)
+
+    def __contains__(self, item):
+        return item in self._cards
+
+    def copy(self):
+        new_deck = Deck(start_full=False)
+        new_deck._cards = self._cards.copy()
+        return new_deck
+
+    def __getitem__(self, item):
+        return self._cards[item]
+
+    def __iter__(self):
+        return self._cards.__iter__()
+
+    def __next__(self):
+        return self.__next__()

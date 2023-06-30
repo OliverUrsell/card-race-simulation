@@ -10,11 +10,11 @@ class TestCard(unittest.TestCase):
         """
         Test the conversion from a Card class to a string
         """
-        self.assertEqual(str(Card(3, Suit.HEART)), "3H")
-        self.assertEqual(str(Card(11, Suit.DIAMOND)), "JD")
-        self.assertEqual(str(Card(12, Suit.SPADE)), "QS")
-        self.assertEqual(str(Card(13, Suit.CLUB)), "KC")
-        self.assertEqual(str(Card(1, Suit.SPADE)), "AS")
+        self.assertEqual("3H", str(Card(3, Suit.HEART)))
+        self.assertEqual("JD", str(Card(11, Suit.DIAMOND)))
+        self.assertEqual("QS", str(Card(12, Suit.SPADE)))
+        self.assertEqual("KC", str(Card(13, Suit.CLUB)))
+        self.assertEqual("AS", str(Card(1, Suit.SPADE)))
 
     def test_invalid_card_values(self):
         """
@@ -22,6 +22,13 @@ class TestCard(unittest.TestCase):
         """
         self.assertRaises(AssertionError, Card, 0, Suit.DIAMOND)
         self.assertRaises(AssertionError, Card, 14, Suit.DIAMOND)
+
+    def test_list_representation(self):
+        cards = [Card(1, Suit.DIAMOND), Card(13, Suit.CLUB), Card(5, Suit.HEART)]
+        self.assertEqual("[AD, KC, 5H]", str(cards))
+
+    def test_equality(self):
+        self.assertEqual(Card(2, Suit.SPADE), Card(2, Suit.SPADE))
 
 
 if __name__ == '__main__':

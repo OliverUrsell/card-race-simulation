@@ -28,6 +28,9 @@ class Card:
         self.suit = suit
         self.value = value
 
+    def __repr__(self):
+        return self.__str__()
+
     def __str__(self) -> str:
         value_string: str = str(self.value)
         if value_string == "11":
@@ -40,3 +43,6 @@ class Card:
             value_string = "A"
 
         return value_string + str(self.suit)
+
+    def __eq__(self, other):
+        return self.value == other.value and self.suit == other.suit
