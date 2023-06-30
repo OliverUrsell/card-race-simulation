@@ -20,7 +20,7 @@ source venv/bin/activate
 ## Setting parameters
 
 ## How to run the program
-Run the command:
+Run the following command at the root of the project:
 ```commandline
 python main.py
 ```
