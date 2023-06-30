@@ -98,6 +98,21 @@ class TestDeck(unittest.TestCase):
                 break
         self.assertFalse(found, "The copied deck had the wrong order")
 
+    def test_take_first(self):
+        """Test the function for taking the top card from the deck"""
+        deck = Deck(start_full=False)
+        self.assertEqual("[]", str(deck))
+
+        deck.add_card(Card(1, Suit.DIAMOND))
+        self.assertEqual("[AD]", str(deck))
+
+        deck.add_card(Card(3, Suit.HEART))
+        self.assertEqual("[AD, 3H]", str(deck))
+
+        top = deck.take_top()
+        self.assertEqual(Card(1, Suit.DIAMOND), top)
+        self.assertEqual("[3H]", str(deck))
+
 
 if __name__ == '__main__':
     unittest.main()

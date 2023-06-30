@@ -55,3 +55,7 @@ class Deck:
 
     def __next__(self):
         return self.__next__()
+
+    def take_top(self) -> Card:
+        """Take the top card from the deck"""
+        return self._cards.pop(0)
