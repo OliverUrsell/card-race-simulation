@@ -1,4 +1,3 @@
-import copy
 import functools
 import unittest
 
@@ -112,6 +111,9 @@ class TestDeck(unittest.TestCase):
         top = deck.take_top()
         self.assertEqual(Card(1, Suit.DIAMOND), top)
         self.assertEqual("[3H]", str(deck))
+
+        deck.take_top()
+        self.assertRaises(IndexError, deck.take_top)
 
 
 if __name__ == '__main__':
