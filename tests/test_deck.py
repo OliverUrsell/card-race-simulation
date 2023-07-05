@@ -115,6 +115,19 @@ class TestDeck(unittest.TestCase):
         deck.take_top()
         self.assertRaises(IndexError, deck.take_top)
 
+    def test_len(self):
+        deck = Deck(start_full=True)
+        self.assertEqual(len(deck), 52)
+        deck.take_top()
+        self.assertEqual(len(deck), 51)
+        deck.take_top()
+        self.assertEqual(len(deck), 50)
+        deck.take_top()
+        deck.take_top()
+        self.assertEqual(len(deck), 48)
+
+        deck = Deck(start_full=False)
+        self.assertEqual(len(deck), 0)
 
 if __name__ == '__main__':
     unittest.main()
