@@ -8,7 +8,7 @@ class Deck:
 
     _cards: List[Card]
 
-    def __init__(self, start_full:bool = True):
+    def __init__(self, start_full: bool = True):
         """
         :param start_full: Whether to start with an ordered deck (True), or an empty deck (False)
         """
@@ -25,7 +25,7 @@ class Deck:
         """
         self._cards += [card]
 
-    def remove_card(self, card:Card):
+    def remove_card(self, card: Card):
         """
         Remove the first instance of the given card from the deck
         :param card: The card to remove
