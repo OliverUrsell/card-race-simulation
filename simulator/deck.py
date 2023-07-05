@@ -34,23 +34,31 @@ class Deck:
         self._cards.remove(card)
 
     def __str__(self):
+        """Provides a string representation for the deck"""
         return str(self._cards)
 
     def shuffle(self):
+        """Shuffles the cards in the deck into a random order"""
         shuffle(self._cards)
 
-    def __contains__(self, item):
+    def __contains__(self, item: Card):
+        """Allows checking if a card is in the deck using the 'in' operator"""
         return item in self._cards
 
     def copy(self):
+        """
+        Creates a copy of the deck containing the same cards in the same order but at a different reference location
+        """
         new_deck = Deck(start_full=False)
         new_deck._cards = self._cards.copy()
         return new_deck
 
-    def __getitem__(self, item):
+    def __getitem__(self, item: int):
+        """Allows getting a card at a specific position in the deck using the square bracket operator"""
         return self._cards[item]
 
     def __len__(self):
+        """Allows getting the number of cards in the deck using the standard 'len' function"""
         return len(self._cards)
 
     def take_top(self) -> Card:

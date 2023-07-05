@@ -12,7 +12,7 @@ class GameState:
     _deck: Deck
     _length_of_line: int
 
-    def __init__(self, length_of_line=k_length_of_line):
+    def __init__(self, length_of_line: int = k_length_of_line):
         """Provide a constructor to override constants for testing"""
         self._length_of_line = length_of_line
 
@@ -78,9 +78,11 @@ class GameState:
         return card, self  # Return the new game state and the card drawn
 
     def __repr__(self):
+        """Ensures that cards are represented correctly when converting other objects, such as lists, to a string"""
         return self.__str__()
 
     def __str__(self):
+        """Provide a string representation of the game state"""
         out = ""
         for i in range(self._length_of_line + 1, -1, -1):
             # Go backwards from the length of the line to 0

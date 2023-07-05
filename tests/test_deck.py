@@ -116,6 +116,7 @@ class TestDeck(unittest.TestCase):
         self.assertRaises(IndexError, deck.take_top)
 
     def test_len(self):
+        """Tests that the len function correctly returns the number of cards in the deck"""
         deck = Deck(start_full=True)
         self.assertEqual(len(deck), 52)
         deck.take_top()

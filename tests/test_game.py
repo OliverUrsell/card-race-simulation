@@ -1,7 +1,7 @@
 import unittest.mock
 import random
 import io
-from typing import Callable
+from typing import Callable, Any
 
 from simulator.game import Game
 
@@ -9,8 +9,13 @@ from simulator.game import Game
 class TestGame(unittest.TestCase):
 
     @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
-    def assert_stdout(self, expected_output, func: Callable, mock_stdout):
-        """Assert an expected value for stdout (the content printed to the console)"""
+    def assert_stdout(self, expected_output: Any, func: Callable, mock_stdout: io.StringIO):
+        """
+        Assert an expected value for stdout (the content printed to the console)
+        Usage:  self.assert_stdout(expected_value, func)
+        Where expected_value is the string the function prints to the console and func is the function that calls print
+        The mock_stdout parameter is provided by the decorator
+        """
         func()
         self.assertEqual(expected_output, mock_stdout.getvalue())
 

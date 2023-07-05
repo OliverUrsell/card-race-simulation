@@ -46,7 +46,7 @@ class TestGameState(unittest.TestCase):
         self.assertEqual(2, state._side_cards_revealed)
 
     def test_done(self):
-        """Tests the _done function"""
+        """Tests the _done function correctly checks if the game is finished or not"""
         state = iter(GameState(length_of_line=6))
         state._deck._cards = [Card(6, Suit.SPADE)]
         state._side_cards = [Card(9, Suit.CLUB), Card(12, Suit.HEART)]
