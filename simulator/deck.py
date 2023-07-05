@@ -50,12 +50,6 @@ class Deck:
     def __getitem__(self, item):
         return self._cards[item]
 
-    def __iter__(self):
-        return self._cards.__iter__()
-
-    def __next__(self):
-        return self.__next__()
-
     def __len__(self):
         return len(self._cards)
 
