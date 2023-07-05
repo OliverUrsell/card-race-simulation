@@ -54,8 +54,8 @@ class TestDeck(unittest.TestCase):
 
         # Check presence
         self.assertTrue(functools.reduce(lambda acc, curr: acc and (curr in shuffled_deck), deck), "The shuffled deck "
-                                                                                                 "didn't contain all "
-                                                                                                 "the same cards")
+                                                                                                   "didn't contain all "
+                                                                                                   "the same cards")
 
         # Check order has changed
         found = False
@@ -128,6 +128,7 @@ class TestDeck(unittest.TestCase):
 
         deck = Deck(start_full=False)
         self.assertEqual(len(deck), 0)
+
 
 if __name__ == '__main__':
     unittest.main()
