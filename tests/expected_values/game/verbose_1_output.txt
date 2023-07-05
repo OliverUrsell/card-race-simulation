@@ -1,0 +1,73 @@
+Drew card: QD
+
+Drew card: 5H
+
+Drew card: JH
+
+Drew card: 10S
+
+Drew card: KD
+
+Drew card: 9H
+
+Drew card: 8C
+
+Drew card: 7D
+
+Drew card: JD
+
+Drew card: 2D
+
+Drew card: 5D
+
+Drew card: 9D
+
+Drew card: 7C
+
+Drew card: KC
+
+Drew card: 2C
+
+Drew card: 4D
+
+Drew card: 10C
+
+Drew card: 2S
+
+Drew card: 4H
+
+Drew card: JS
+
+Drew card: QH
+
+Drew card: 5C
+
+Drew card: 10H
+
+Drew card: 4S
+
+Drew card: 5S
+
+Drew card: 3C
+
+Drew card: KS
+
+Drew card: 2H
+
+Drew card: 3D
+
+Drew card: 10D
+
+Drew card: 7H
+
+Drew card: 9C
+
+Drew card: 4C
+
+Drew card: 3H
+
+Drew card: QS
+
+Drew card: 6H
+
+Hearts won the game!

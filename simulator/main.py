@@ -1,5 +1,4 @@
-from card import Card, Suit
+from simulator.game import Game
 
 if __name__ == '__main__':
-    card = Card(3, Suit.DIAMOND)
-    print(card)
+    Game().play_game(2)
