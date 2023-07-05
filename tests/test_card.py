@@ -29,6 +29,9 @@ class TestCard(unittest.TestCase):
 
     def test_equality(self):
         self.assertEqual(Card(2, Suit.SPADE), Card(2, Suit.SPADE))
+        self.assertNotEqual(Card(2, Suit.SPADE), Card(2, Suit.HEART))
+        self.assertNotEqual(Card(2, Suit.SPADE), Card(13, Suit.SPADE))
+        self.assertNotEqual(Card(2, Suit.SPADE), Card(13, Suit.HEART))
 
     def test_to_full_name(self):
         self.assertEqual("diamond", Suit.DIAMOND.to_full_name())
