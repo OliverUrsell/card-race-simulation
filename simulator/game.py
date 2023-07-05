@@ -27,7 +27,7 @@ class Game:
             print("\n" + str(state)) if verbosity >= 2 else 1 + 1
             raise
 
-        print(card.suit.to_full_name() + "s won the game!") if verbosity >= 0 else 1 + 1
+        print(card.suit.to_full_name().capitalize() + "s won the game!") if verbosity >= 0 else 1 + 1
         print("\n" + str(state)) if verbosity >= 2 else 1 + 1
 
         return card.suit

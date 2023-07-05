@@ -21,13 +21,13 @@ class Suit(Enum):
 
     def to_full_name(self):
         if self == Suit.HEART:
-            return "Heart"
+            return "heart"
         elif self == Suit.DIAMOND:
-            return "Diamond"
+            return "diamond"
         elif self == Suit.SPADE:
-            return "Spade"
+            return "spade"
         elif self == Suit.CLUB:
-            return "Club"
+            return "club"
         else:
             raise ValueError("Suit cannot be represented as a string")
 

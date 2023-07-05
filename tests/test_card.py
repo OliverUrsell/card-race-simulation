@@ -31,10 +31,10 @@ class TestCard(unittest.TestCase):
         self.assertEqual(Card(2, Suit.SPADE), Card(2, Suit.SPADE))
 
     def test_to_full_name(self):
-        self.assertEqual("Diamond", Suit.DIAMOND.to_full_name())
-        self.assertEqual("Heart", Suit.HEART.to_full_name())
-        self.assertEqual("Club", Suit.CLUB.to_full_name())
-        self.assertEqual("Spade", Suit.SPADE.to_full_name())
+        self.assertEqual("diamond", Suit.DIAMOND.to_full_name())
+        self.assertEqual("heart", Suit.HEART.to_full_name())
+        self.assertEqual("club", Suit.CLUB.to_full_name())
+        self.assertEqual("spade", Suit.SPADE.to_full_name())
 
 
 if __name__ == '__main__':
