@@ -19,6 +19,18 @@ class Suit(Enum):
         else:
             raise ValueError("Suit cannot be represented as a string")
 
+    def to_full_name(self):
+        if self == Suit.HEART:
+            return "Heart"
+        elif self == Suit.DIAMOND:
+            return "Diamond"
+        elif self == Suit.SPADE:
+            return "Spade"
+        elif self == Suit.CLUB:
+            return "Club"
+        else:
+            raise ValueError("Suit cannot be represented as a string")
+
 
 class Card:
     def __init__(self, value: int, suit: Suit):
