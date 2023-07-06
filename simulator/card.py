@@ -52,6 +52,7 @@ class Card:
 
     def __str__(self) -> str:
         """Provides a string representation of the card"""
+        # TODO: Find a nice way of representing value 10 cards without three characters
         value_string: str = str(self.value)
         if value_string == "11":
             value_string = "J"
