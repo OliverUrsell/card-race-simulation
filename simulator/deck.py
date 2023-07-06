@@ -96,3 +96,7 @@ class Deck:
     def take_top(self) -> Card:
         """Take the top card from the deck"""
         return self._cards.pop(0)
+
+
+if __name__ == '__main__':
+    print("This file should not be run as main, run single_game.py instead")

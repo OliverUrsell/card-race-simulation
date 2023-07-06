@@ -68,3 +68,7 @@ class Card:
     def __eq__(self, other):
         """Allows using the == operator to check if two cards are the same based on their suit and value"""
         return self.value == other.value and self.suit == other.suit
+
+
+if __name__ == '__main__':
+    print("This file should not be run as main, run single_game.py instead")

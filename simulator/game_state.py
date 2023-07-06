@@ -107,3 +107,7 @@ class GameState:
 
             out += "\n"
         return out
+
+
+if __name__ == '__main__':
+    print("This file should not be run as main, run single_game.py instead")
