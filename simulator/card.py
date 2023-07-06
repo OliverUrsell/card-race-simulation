@@ -65,5 +65,5 @@ class Card:
         return value_string + str(self.suit)
 
     def __eq__(self, other):
-        """Allows checking to see if two cards are equal based on their suit and value"""
+        """Allows using the == operator to check if two cards are the same based on their suit and value"""
         return self.value == other.value and self.suit == other.suit
