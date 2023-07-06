@@ -18,6 +18,11 @@ source venv/bin/activate
 ### Dependencies
 
 ## Setting parameters
+Parameters for how the game are run can be found and tweaked in [constants.py](simulator/constants.py).
+
+The parameters are:
+* k_length_of_line - The number of spaces in the line that the aces need to get through to win
+* k_extra_cards - A dictionary defining how many cards to add/remove of each suit in the initial deck
 
 ## How to run the program
 To run a single game with full verbose output, run the following command at the root of the project:
