@@ -1,3 +1,4 @@
+import os
 import unittest.mock
 import random
 import io
@@ -20,9 +21,17 @@ class TestGame(unittest.TestCase):
         func()
         self.assertEqual(expected_output, mock_stdout.getvalue())
 
+    @staticmethod
+    def get_absolute_file_path(local_path: str):
+        """Gets the absolute path of a file based on it's relative path from this script"""
+        return os.path.join(
+            os.path.dirname(os.path.realpath(__file__)),
+            local_path
+        )
+
     def test_play_game_verbosity_negative_1(self):
         """Test the output of a game with verbosity -1"""
-        with open("expected_values/game/verbose_-1_output.txt") as f:
+        with open(self.get_absolute_file_path("expected_values/game/verbose_-1_output.txt")) as f:
             expected_value = f.read()
 
         random.seed(1234)
@@ -30,7 +39,7 @@ class TestGame(unittest.TestCase):
 
     def test_play_game_verbosity_0(self):
         """Test the output of a game with verbosity 0"""
-        with open("expected_values/game/verbose_0_output.txt") as f:
+        with open(self.get_absolute_file_path("expected_values/game/verbose_0_output.txt")) as f:
             expected_value = f.read()
 
         random.seed(1234)
@@ -38,7 +47,7 @@ class TestGame(unittest.TestCase):
 
     def test_play_game_verbosity_1(self):
         """Test the output of a game with verbosity 1"""
-        with open("expected_values/game/verbose_1_output.txt") as f:
+        with open(self.get_absolute_file_path("expected_values/game/verbose_1_output.txt")) as f:
             expected_value = f.read()
 
         random.seed(1234)
@@ -46,7 +55,7 @@ class TestGame(unittest.TestCase):
 
     def test_play_game_verbosity_2(self):
         """Test the output of a game with verbosity 2"""
-        with open("expected_values/game/verbose_2_output.txt") as f:
+        with open(self.get_absolute_file_path("expected_values/game/verbose_2_output.txt")) as f:
             expected_value = f.read()
 
         random.seed(1234)
@@ -54,7 +63,7 @@ class TestGame(unittest.TestCase):
 
     def test_play_game_extra_cards(self):
         """Test the output of a game with verbosity 2 and extra cards specified"""
-        with open("expected_values/game/verbose_2_extra_cards_output.txt") as f:
+        with open(self.get_absolute_file_path("expected_values/game/verbose_2_extra_cards_output.txt")) as f:
             expected_value = f.read()
 
         random.seed(1234)

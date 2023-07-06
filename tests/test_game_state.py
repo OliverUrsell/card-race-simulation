@@ -1,3 +1,4 @@
+import os
 import random
 import unittest
 
@@ -65,12 +66,20 @@ class TestGameState(unittest.TestCase):
         # Test that stop iteration is raised after the game is finished
         self.assertRaises(StopIteration, state.__next__)
 
+    @staticmethod
+    def get_absolute_file_path(local_path: str):
+        """Gets the absolute path of a file based on it's relative path from this script"""
+        return os.path.join(
+            os.path.dirname(os.path.realpath(__file__)),
+            local_path
+        )
+
     def test_string(self):
         """Test the string representation of the game state"""
 
         state = iter(GameState(length_of_line=7, extra_cards=None))
 
-        with open("expected_values/game_state/game_state_string_initial.txt") as f:
+        with open(self.get_absolute_file_path("expected_values/game_state/game_state_string_initial.txt")) as f:
             expected_value = f.read()
 
         self.assertEqual(expected_value, str(state))
@@ -81,14 +90,14 @@ class TestGameState(unittest.TestCase):
         state._side_cards_revealed = 1
         state._ace_positions = {Suit.HEART: 4, Suit.DIAMOND: 5, Suit.SPADE: 2, Suit.CLUB: 5}
 
-        with open("expected_values/game_state/game_state_string_before.txt") as f:
+        with open(self.get_absolute_file_path("expected_values/game_state/game_state_string_before.txt")) as f:
             expected_value = f.read()
 
         self.assertEqual(expected_value, str(state))
 
         next(state)
 
-        with open("expected_values/game_state/game_state_string_after.txt") as f:
+        with open(self.get_absolute_file_path("expected_values/game_state/game_state_string_after.txt")) as f:
             expected_value = f.read()
 
         self.assertEqual(expected_value, str(state))
