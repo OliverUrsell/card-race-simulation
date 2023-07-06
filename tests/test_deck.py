@@ -1,4 +1,5 @@
 import functools
+import random
 import unittest
 
 from simulator.card import Card, Suit
@@ -9,6 +10,10 @@ class TestDeck(unittest.TestCase):
     _expected_initial_deck: str = "[AH, 2H, 3H, 4H, 5H, 6H, 7H, 8H, 9H, 10H, JH, QH, KH, AD, 2D, 3D, 4D, 5D, 6D, 7D, " \
                                   "8D, 9D, 10D, JD, QD, KD, AS, 2S, 3S, 4S, 5S, 6S, 7S, 8S, 9S, 10S, JS, QS, KS, AC, " \
                                   "2C, 3C, 4C, 5C, 6C, 7C, 8C, 9C, 10C, JC, QC, KC]"
+
+    _expected_modified_suit_deck: str = "[AH, 2H, 3H, 4H, 5H, 6H, 7H, 8H, 9H, 10H, JH, QH, KH, 3D, 4D, 5D, 6D, 7D, " \
+                                        "8D, 9D, 10D, JD, QD, KD, AS, 2S, 3S, 4S, 5S, 6S, 7S, 8S, 9S, 10S, JS, QS, " \
+                                        "KS, JC, QC, KC, KH, 8H]"
 
     def test_string_conversion(self):
         """Test the conversion from a Deck class to a string"""
@@ -129,6 +134,17 @@ class TestDeck(unittest.TestCase):
 
         deck = Deck(start_full=False)
         self.assertEqual(len(deck), 0)
+
+    def test_extra_cards(self):
+        """Check adding/removing cards of certain suits works"""
+        random.seed(1234)
+
+        deck = Deck(extra_cards={Suit.HEART: 2, Suit.DIAMOND: -2, Suit.CLUB: -10})
+        self.assertEqual(self._expected_modified_suit_deck, str(deck._cards))
+
+        # Check that if we remove too many we get an error
+        self.assertRaises(AssertionError,
+                          lambda: Deck(extra_cards={Suit.HEART: 2, Suit.DIAMOND: -14, Suit.SPADE: -2, Suit.CLUB: -10}))
 
 
 if __name__ == '__main__':

@@ -1,3 +1,4 @@
+import random
 import unittest
 
 from simulator.card import Suit, Card
@@ -6,6 +7,9 @@ from simulator.game_state import GameState
 
 
 class TestGameState(unittest.TestCase):
+
+    _expected_modified_suit_deck: str = "[7S, 5D, 4S, QH, 3H, 8D, 10S, 10H, 6S, 5H, KS, QC, 6H, 6D, 3S, 7D, JD, QD, " \
+                                        "KH, 8S, 5S, 9S, KH, 8H, 2S, 8H, KC, 4H, 7H, 2H, 9H]"
 
     def test_iter(self):
         """Tests the initial setup of the game state iterator"""
@@ -64,14 +68,14 @@ class TestGameState(unittest.TestCase):
     def test_string(self):
         """Test the string representation of the game state"""
 
-        state = iter(GameState(length_of_line=7))
+        state = iter(GameState(length_of_line=7, extra_cards=None))
 
         with open("expected_values/game_state/game_state_string_initial.txt") as f:
             expected_value = f.read()
 
         self.assertEqual(expected_value, str(state))
 
-        state = iter(GameState())
+        state = iter(GameState(length_of_line=7, extra_cards=None))
         state._deck._cards = [Card(6, Suit.SPADE)]
         state._side_cards = [Card(9, Suit.SPADE), Card(12, Suit.HEART)]
         state._side_cards_revealed = 1
@@ -88,6 +92,11 @@ class TestGameState(unittest.TestCase):
             expected_value = f.read()
 
         self.assertEqual(expected_value, str(state))
+
+    def test_extra_cards(self):
+        random.seed(1234)
+        state = iter(GameState(length_of_line=7, extra_cards={Suit.HEART: 2, Suit.DIAMOND: -2, Suit.CLUB: -10}))
+        self.assertEqual(self._expected_modified_suit_deck, str(state._deck._cards))
 
 
 if __name__ == '__main__':

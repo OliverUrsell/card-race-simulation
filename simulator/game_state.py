@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 from simulator.card import Suit, Card
 from simulator.constants import k_length_of_line
@@ -11,24 +11,23 @@ class GameState:
     _side_cards_revealed: int  # The number of side cards that have been overturned
     _deck: Deck
     _length_of_line: int
+    _extra_cards: Dict[Suit, int]
 
-    def __init__(self, length_of_line: int = k_length_of_line):
+    def __init__(self, length_of_line: int = k_length_of_line, extra_cards: Optional[Dict[Suit, int]] = None):
         """Provide a constructor to override constants for testing"""
         self._length_of_line = length_of_line
+        self._extra_cards = extra_cards
 
     def __iter__(self):
         """Initialise the starting game state"""
 
-        # Create an in-order deck
-        self._deck = Deck()
-        # Shuffle it
+        # Create an in-order deck, with the aces removed and possible extra cards added / removed
+        self._deck = Deck(extra_cards=self._extra_cards, remove_cards=[Card(1, suit) for suit in Suit])
+
+        print(self._deck)
+
+        # Shuffle the deck
         self._deck.shuffle()
-
-        # TODO: add extra cards through some configuration
-
-        # Remove the aces from the deck
-        for suit in Suit:
-            self._deck.remove_card(Card(1, suit))
 
         # Initialise ace positions
         self._ace_positions = dict()
