@@ -24,8 +24,6 @@ class GameState:
         # Create an in-order deck, with the aces removed and possible extra cards added / removed
         self._deck = Deck(extra_cards=self._extra_cards, remove_cards=[Card(1, suit) for suit in Suit])
 
-        print(self._deck)
-
         # Shuffle the deck
         self._deck.shuffle()
 
