@@ -20,10 +20,11 @@ source venv/bin/activate
 ## Setting parameters
 
 ## How to run the program
-Run the following command at the root of the project:
+To run a single game with full verbose output, run the following command at the root of the project:
 ```commandline
-python main.py
+python -m simulator.single_game
 ```
+Warning: If the deck in the game runs out of cards the error `IndexError: pop from empty list` will be raised.
 
 ## How to run tests
 To run tests, execute the following command at the root of the project:
