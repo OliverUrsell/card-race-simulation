@@ -44,4 +44,4 @@ class Game:
 
 
 if __name__ == '__main__':
-    print("This file should not be run as main, run single_game.py instead")
+    print("This file should not be run as main, run single_game.py or multiple_games.py instead")
