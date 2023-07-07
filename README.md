@@ -82,3 +82,15 @@ To run tests, execute the following command at the root of the project:
 ```commandline
 python -m unittest discover -s tests
 ```
+
+
+## TODO
+Here is a list of planned / potential features to implement:
+* A way of storing the array of wins that is a result of multiple_games.py, this would allow processing the information
+to find facts like the longest unbroken run of one suit winning
+* Find a better way of representing cards with value 10 as a string, instead of using three characters
+* Implementing the more efficient algorithm for adding/removing extra cards of each suit in deck.py
+* Implementing a custom error for when the deck runs out of cards, instead of the current method using IndexError which 
+is too generic
+* Add a test to check that the deck is shuffled correctly by the GameState class
+* Add tests for the multiple_games and single_game files
