@@ -13,6 +13,9 @@ of the revealed card's suit is moved back one space.
 
 Whichever suit is the first to get to the final row is the winner.
 
+To see an illustration of what a game looks like see 
+[verbose_2_output.txt](tests/expected_values/game/verbose_2_output.txt)
+
 
 This can be played as a drinking game by betting sips on a suit, when a suit wins the people that bet on that
 suit can allocate the other players to drink the total number of sips that were bet on all four suits.
