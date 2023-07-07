@@ -17,28 +17,39 @@ Whichever suit is the first to get to the final row is the winner.
 This can be played as a drinking game by betting sips on a suit, when a suit wins the people that bet on that
 suit can allocate the other players to drink the total number of sips that were bet on all four suits.
 
-[//]: # (## Installation)
+## Installation
 
-[//]: # (### Creating a venv)
+### Creating a Virtual Environment
+Virtual Environments (venvs) are used to isolate requirements for different python projects across your OS. For more
+information see [official documentation](https://docs.python.org/3/library/venv.html).
 
-[//]: # (Create a venv using:)
+Create a venv using:
 
-[//]: # (```commandline)
+```commandline
 
-[//]: # (python -m venv venv)
+python -m venv venv
 
-[//]: # (```)
+```
 
-[//]: # ()
-[//]: # (Activate it using:)
 
-[//]: # (```commandline)
+Activate it using:
 
-[//]: # (source venv/bin/activate)
+```commandline
 
-[//]: # (```)
+source venv/bin/activate
 
-[//]: # (### Dependencies)
+```
+
+### Dependencies
+Once in a virtual environment (or globally, if you want) you can install the dependencies for this project by using this
+command at the project root folder:
+
+```commandline
+pip install -r requirements.txt
+```
+
+This will install the following python packages:
+* [tqdm](https://github.com/tqdm/tqdm) - Provides a progress bar for running multiple games at once
 
 ## Setting parameters
 Parameters for how the game are run can be found and tweaked in [constants.py](simulator/constants.py).
@@ -48,11 +59,23 @@ The parameters are:
 * k_extra_cards - A dictionary defining how many cards to add/remove of each suit in the initial deck
 
 ## How to run the program
-To run a single game with full verbose output, run the following command at the root of the project:
+
+### Single Game
+To run a single game with full verbose output, set the [parameters](#setting-parameters) appropriately, run the
+following command at the root of the project:
 ```commandline
 python -m simulator.single_game
 ```
 Warning: If the deck in the game runs out of cards the error `IndexError: pop from empty list` will be raised.
+
+
+### Multiple Games
+To run multiple games and get the probability of the deck emptying and each suit winning, set the
+[parameters](#setting-parameters) appropriately and run the following command at the root of the project:
+```commandline
+python -m simulator.multiple_games
+```
+
 
 ## How to run tests
 To run tests, execute the following command at the root of the project:
