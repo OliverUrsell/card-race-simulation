@@ -54,9 +54,13 @@ This will install the following python packages:
 ## Setting parameters
 Parameters for how the game are run can be found and tweaked in [constants.py](simulator/constants.py).
 
-The parameters are:
+The parameters for the individual games are:
 * k_length_of_line - The number of spaces in the line that the aces need to get through to win
 * k_extra_cards - A dictionary defining how many cards to add/remove of each suit in the initial deck
+
+Parameters for multiple games are:
+* k_number_of_games - The number of games to run in total to calculate the probability of each suit winning / the deck
+running out of cards
 
 ## How to run the program
 
